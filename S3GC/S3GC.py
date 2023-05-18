@@ -1,13 +1,12 @@
 ######################################################
 ####### Please define Parameters ########################
 dataset_path = '../dataset/'
-# dataset_name = 'Pubmed' #{'Cora', 'Citeseer', 'Pubmed','ogbn-arxiv' , 'reddit','ogbn-products'}
 save_plots = True
 save_embedding = True
 num_workers = None #{None, 1, 2, 3, 4,...}
 
 
-cora_params     = {'walk_length':5 , 'hidden_dims':256, 'walks_per_node':20 , 'batch_size':512 , 'lr':0.01,'epochs':4,'log_steps':100}
+cora_params     = {'walk_length':5 , 'hidden_dims':256, 'walks_per_node':20 , 'batch_size':512 , 'lr':0.01,'epochs':40,'log_steps':100}
 citeseer_params = {'walk_length':5 , 'hidden_dims':256, 'walks_per_node':20 , 'batch_size':256 , 'lr':0.001,'epochs':40,'log_steps':100}
 pubmed_params   = {'walk_length':5 , 'hidden_dims':256, 'walks_per_node':15 , 'batch_size':256 , 'lr':0.001,'epochs':40,'log_steps':100}
 arxiv_params    = {'walk_length':5 , 'hidden_dims':256, 'walks_per_node':20 , 'batch_size':512 , 'lr':0.01,'epochs':40,'log_steps':100}
@@ -99,7 +98,7 @@ from sklearn.base import clone
 # else:
 #     device = torch.device('cpu')
 
-device = torch.device('cuda:0' if torch.cuda.is_available() else 'cpu')
+device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
     
 print(f'############# Start of Run S3GC for {dataset_name} #############')
 

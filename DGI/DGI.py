@@ -27,7 +27,7 @@ from clustering_metric import clustering_metrics
 
 
 
-# cora_params     = {'embedding_dims':512, 'num_neighbors':[-1, -1, -1] , 'batch_size':2048 , 'lr':0.0001,'epochs':40}
+
 cora_params     = {'embedding_dims':512, 'num_neighbors':[25, 20, 10] , 'batch_size':256 , 'lr':0.001,'epochs':40}
 citeseer_params = {'embedding_dims':512, 'num_neighbors':[25, 20, 10] , 'batch_size':128 , 'lr':0.0001,'epochs':40}
 pubmed_params   = {'embedding_dims':512, 'num_neighbors':[25, 20, 10] , 'batch_size':256 , 'lr':0.0001,'epochs':40}
@@ -143,7 +143,7 @@ def Kmeans_(x, K=-1, Niter=10, verbose=False):
     return cl, c
 
 
-device = torch.device('cuda:0' if torch.cuda.is_available() else 'cpu')
+device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
 
 

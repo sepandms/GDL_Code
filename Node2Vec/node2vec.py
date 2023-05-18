@@ -3,12 +3,9 @@
 dataset_path = '../dataset/'
 save_plots = True
 save_embedding = True
-# device = 'cpu' # {'cuda','cpu'}
 num_workers = None #{None, 1, 2, 3, 4,...}
 
 cora_params      = {'embedding_dim':128 , 'batch_size':128, 'walk_length':12 , 'context_size':12 ,'walks_per_node':10, 'lr':0.01,'num_negative_samples':1,'p':1,'q':1 ,'epochs':40,'log_steps':100}
-# cora_params      = {'embedding_dim':128 , 'batch_size':512, 'walk_length':20 , 'context_size':15 ,'walks_per_node':15, 'lr':0.001,'num_negative_samples':3,'p':0.9,'q':0.9 ,'epochs':40,'log_steps':100}
-
 citeseer_params  = {'embedding_dim':128 , 'batch_size':128, 'walk_length':12 , 'context_size':12 ,'walks_per_node':10, 'lr':0.01,'num_negative_samples':1,'p':1,'q':1 ,'epochs':40,'log_steps':100}
 pubmed_params    = {'embedding_dim':128 , 'batch_size':128, 'walk_length':15 , 'context_size':15 ,'walks_per_node':10, 'lr':0.01,'num_negative_samples':1,'p':1,'q':1 ,'epochs':40,'log_steps':100}
 arxiv_params     = {'embedding_dim':128 , 'batch_size':512, 'walk_length':20 , 'context_size':15 ,'walks_per_node':10, 'lr':0.001,'num_negative_samples':2,'p':1,'q':1 ,'epochs':40,'log_steps':100}
@@ -101,7 +98,7 @@ except: None
 # else:
 #     device = torch.device('cpu')
 
-device = torch.device('cuda:0' if torch.cuda.is_available() else 'cpu')
+device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
 
 if str.lower(dataset_name) in ['cora','citeseer','pubmed']:
@@ -204,7 +201,6 @@ def main():
         # details_val = details_val.append(new_row,ignore_index=True)
         details_val = pd.concat([details_val, pd.DataFrame([new_row])], ignore_index=True)
 
-
         if nmi > max_nmi:
             max_nmi = nmi
             if save_embedding:
@@ -220,7 +216,6 @@ def main():
         new_row = {'Epoch':epoch,'Accuracy':acc,'NMI':nmi,'CS':cs,'F1':f1_macro,'ARI':adjscore}
         # details_train = details_train.append(new_row,ignore_index=True)
         details_train = pd.concat([details_train, pd.DataFrame([new_row])], ignore_index=True)
-
 
 
     print("Time taken for training: " + str(time.time()-start_train))
