@@ -12,7 +12,6 @@ These datasets must be deposited on datasets folder one level back to S3GC folde
 Don't worry, if you don't donwload or the code doesnt find the datasets, it will just donwload them.
 
 ### ###############  How to run different codes ############### ###
-### ################## ################## ################## ######
 
 ### S3GC code
 to run S3GC on different dataset, you need to run S3GC.py by adding the name of dataset at the end of command.

@@ -1,0 +1,27 @@
+name: s3gc
+channels:
+  - pytorch
+  - pyg
+  - conda-forge
+  - nvidia
+  - defaults
+dependencies:
+  - python
+  - ogb
+  - munkres
+  - matplotlib
+  - networkx
+  - pyyaml
+  - pip
+  - pybind11
+  - pytorch
+  - pytorch-sparse
+  - pyg
+  - pytorch-scatter
+  - pytorch-cluster
+  - pip:
+      - tqdm
+      - numpy
+      - scipy
+      - pandas
+      - scikit-learn
