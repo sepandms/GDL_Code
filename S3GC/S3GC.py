@@ -233,7 +233,7 @@ def main():
             best_kmeans = clone(kmeans)
             if save_embedding:
                 save_embedding(embedding, embedding_path + embedding_store)
-        del embedding, y_pred
+
 
 
         new_row = {'Epoch':epoch,'Accuracy':acc,'NMI':nmi,'CS':cs,'F1':f1_macro,'ARI':adjscore}
